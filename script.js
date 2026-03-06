@@ -104,6 +104,10 @@ document.addEventListener('DOMContentLoaded', () => {
         ties: 0,
 
         isProcessing: false,
+
+        // Difficulty Level
+        difficulty: 'medium',
+        playerHistory: [] // To track player patterns for Hard mode
     };
 
     // ==========================================
@@ -185,15 +189,61 @@ document.addEventListener('DOMContentLoaded', () => {
     // AI LOGIC
     // ==========================================
     function getAINumber() {
-        // Weighted random — slightly favors mid-range numbers
-        const weights = [1, 2, 3, 3, 2, 1]; // 1-6
-        const total = weights.reduce((a, b) => a + b, 0);
-        let r = Math.random() * total;
-        for (let i = 0; i < weights.length; i++) {
-            r -= weights[i];
-            if (r <= 0) return i + 1;
+        if (state.difficulty === 'easy') {
+            // Easy: Completely random 1-6
+            return Math.floor(Math.random() * 6) + 1;
         }
-        return Math.floor(Math.random() * 6) + 1;
+        else if (state.difficulty === 'medium') {
+            // Medium: Slightly weighted towards mid-range numbers
+            const weights = [1, 2, 3, 3, 2, 1]; // 1-6
+            const total = weights.reduce((a, b) => a + b, 0);
+            let r = Math.random() * total;
+            for (let i = 0; i < weights.length; i++) {
+                r -= weights[i];
+                if (r <= 0) return i + 1;
+            }
+            return Math.floor(Math.random() * 6) + 1;
+        }
+        else {
+            // Hard: Adaptive AI that analyzes player history
+            // If we don't have enough history, use medium logic
+            if (state.playerHistory.length < 3) {
+                return Math.floor(Math.random() * 6) + 1;
+            }
+
+            // Count frequency of player's past choices
+            const freq = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 };
+            state.playerHistory.forEach(num => freq[num]++);
+
+            // Find most frequent number played
+            let mostFrequentNum = 1;
+            let highestCount = -1;
+            for (let i = 1; i <= 6; i++) {
+                if (freq[i] > highestCount) {
+                    highestCount = freq[i];
+                    mostFrequentNum = i;
+                }
+            }
+
+            // If player is batting, AI wants to match them (get them out) -> 50% chance to pick their favorite
+            // If AI is batting, AI wants to avoid them (score runs) -> Pick a number far from their favorite
+
+            // Add some randomness so it's not perfectly predictable
+            if (Math.random() > 0.4) {
+                if (state.playerBatting) {
+                    // Try to get them out
+                    return parseInt(mostFrequentNum);
+                } else {
+                    // Try to score but avoid their favorite number
+                    let safeNum = parseInt(mostFrequentNum) + 2;
+                    if (safeNum > 6) safeNum = (safeNum % 6) || 6;
+                    return safeNum;
+                }
+            }
+
+            // Fallback to random if AI doesn't use the trick this time
+            return Math.floor(Math.random() * 6) + 1;
+        }
     }
 
 
@@ -219,8 +269,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Start Game
     document.getElementById('btn-start-game').addEventListener('click', () => {
+        // Get selected difficulty
+        const diffRadio = document.querySelector('input[name="difficulty"]:checked');
+        if (diffRadio) {
+            state.difficulty = diffRadio.value;
+        }
+        state.playerHistory = []; // Reset history for new game
+
         showScreen('toss');
-        setNavStatus('Toss Phase');
+        setNavStatus(`Toss Phase (${state.difficulty.toUpperCase()})`);
         state.phase = 'toss';
     });
 
@@ -411,6 +468,9 @@ document.addEventListener('DOMContentLoaded', () => {
         state.isProcessing = true;
         state.roundNum++;
         disablePlayButtons();
+
+        // Track player choice for Hard difficulty AI
+        state.playerHistory.push(playerNum);
 
         const aiNum = getAINumber();
 

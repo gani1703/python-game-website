@@ -418,6 +418,85 @@ button {
   margin-top: 1.5rem;
 }
 
+/* ===== DIFFICULTY SELECTOR ===== */
+.difficulty-selector {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.difficulty-label {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.difficulty-options {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.diff-option {
+  cursor: pointer;
+}
+
+.diff-option input {
+  display: none;
+}
+
+.diff-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.2rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-secondary);
+  transition: all var(--transition-normal);
+}
+
+.diff-btn i {
+  font-size: 0.9rem;
+}
+
+/* Colors for specific buttons when checked */
+.diff-option input:checked+.diff-easy {
+  border-color: var(--neon-green);
+  color: var(--neon-green);
+  background: rgba(0, 255, 136, 0.08);
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.2);
+}
+
+.diff-option input:checked+.diff-medium {
+  border-color: var(--neon-yellow);
+  color: var(--neon-yellow);
+  background: rgba(251, 191, 36, 0.08);
+  box-shadow: 0 0 15px rgba(251, 191, 36, 0.2);
+}
+
+.diff-option input:checked+.diff-hard {
+  border-color: var(--neon-red);
+  color: var(--neon-red);
+  background: rgba(255, 51, 102, 0.08);
+  box-shadow: 0 0 15px rgba(255, 51, 102, 0.2);
+}
+
+.diff-btn:hover {
+  border-color: var(--glass-border-hover);
+  color: var(--text-primary);
+}
+
 /* ===== HOW TO PLAY SCREEN ===== */
 .howto-content {
   max-width: 550px;
