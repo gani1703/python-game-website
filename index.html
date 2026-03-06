@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StrategyX — Hand Cricket | Play Now</title>
+    <title>HandCricket Game — Play vs AI Now</title>
     <meta name="description"
-        content="Play Hand Cricket against a smart AI opponent directly in your browser. No downloads needed.">
+        content="Play Hand Cricket against a smart AI opponent directly in your browser. Choose your difficulty and beat the machine!">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,7 +32,7 @@
         <div class="nav-container">
             <a href="#" class="nav-logo">
                 <span class="logo-icon"><i class="fa-solid fa-gamepad"></i></span>
-                <span class="logo-text">STRATEGY<span class="logo-accent">X</span></span>
+                <span class="logo-text">HAND<span class="logo-accent">CRICKET</span></span>
             </a>
             <div class="nav-center">
                 <span class="nav-status" id="nav-status">Ready to Play</span>
@@ -53,11 +53,11 @@
         <section id="screen-welcome" class="game-screen active">
             <div class="screen-content">
                 <div class="welcome-badge">
-                    <i class="fa-solid fa-bolt"></i> HAND CRICKET
+                    <i class="fa-solid fa-cricket-bat-ball"></i> HAND CRICKET
                 </div>
                 <h1 class="welcome-title">
-                    <span class="title-line">STRATEGY</span>
-                    <span class="title-line title-accent">X</span>
+                    <span class="title-line">HAND</span>
+                    <span class="title-line title-accent">CRICKET</span>
                 </h1>
                 <p class="welcome-tagline">Challenge the Machine. Prove You're Smarter.</p>
 
@@ -73,6 +73,34 @@
                     <div class="wf-item">
                         <i class="fa-solid fa-infinity"></i>
                         <span>Unlimited</span>
+                    </div>
+                </div>
+
+                <!-- Difficulty Selector -->
+                <div class="difficulty-selector">
+                    <p class="difficulty-label">Choose Difficulty:</p>
+                    <div class="difficulty-options">
+                        <label class="diff-option">
+                            <input type="radio" name="difficulty" value="easy">
+                            <span class="diff-btn diff-easy">
+                                <i class="fa-solid fa-face-smile"></i>
+                                <span>Easy</span>
+                            </span>
+                        </label>
+                        <label class="diff-option">
+                            <input type="radio" name="difficulty" value="medium" checked>
+                            <span class="diff-btn diff-medium">
+                                <i class="fa-solid fa-fire"></i>
+                                <span>Medium</span>
+                            </span>
+                        </label>
+                        <label class="diff-option">
+                            <input type="radio" name="difficulty" value="hard">
+                            <span class="diff-btn diff-hard">
+                                <i class="fa-solid fa-skull"></i>
+                                <span>Hard</span>
+                            </span>
+                        </label>
                     </div>
                 </div>
 
@@ -295,7 +323,8 @@
 
     <!-- Footer -->
     <footer class="game-footer">
-        <p>Made with <i class="fa-solid fa-heart" style="color:#ff3366;"></i> and JavaScript &nbsp;|&nbsp; StrategyX
+        <p>Made with <i class="fa-solid fa-heart" style="color:#ff3366;"></i> and JavaScript &nbsp;|&nbsp; HandCricket
+            Game
             &copy; 2026</p>
     </footer>
 
