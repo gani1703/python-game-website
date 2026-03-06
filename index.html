@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hand Cricket vs AI</title>
+    <meta name="description" content="Play the classic Hand Cricket game against a smart AI opponent. Built in Python.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Particle Background Container -->
+    <div id="particles-js"></div>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <section id="hero" class="hero section">
+            <h1 class="neon-text">HAND CRICKET <br/><span class="accent">VS AI</span></h1>
+            <p class="tagline">Challenge the Machine. Prove You're Smarter.</p>
+            <a href="#download" class="btn btn-primary btn-glow">
+                <i class="fa-solid fa-gamepad"></i> Play Now
+            </a>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about section fade-in">
+            <h2 class="section-title">About the Game</h2>
+            <p class="section-desc">
+                A modern, terminal-based Python game where you compete against a computer opponent.  
+                Choose your numbers (1-6) wisely. Test your predictive skills, strategize your batting, and chase down the target to beat the AI.
+            </p>
+            
+            <div class="features-grid">
+                <div class="feature-card glass-panel">
+                    <div class="feature-icon"><i class="fa-solid fa-robot"></i></div>
+                    <h3>Human vs AI</h3>
+                    <p>Play against a computer opponent that unpredictably chooses its numbers to stump you.</p>
+                </div>
+                <div class="feature-card glass-panel">
+                    <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <h3>Instant Feedback</h3>
+                    <p>Real-time terminal outputs calculating totals, targets, and match outcomes instantly.</p>
+                </div>
+                <div class="feature-card glass-panel">
+                    <div class="feature-icon"><i class="fa-solid fa-rotate-right"></i></div>
+                    <h3>Replayable</h3>
+                    <p>Every match is different. Win the toss, set massive targets, or defend small totals.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- How to Play Section -->
+        <section id="how-to-play" class="how-to-play section fade-in">
+            <h2 class="section-title">How to Play</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item glass-panel">
+                    <div class="timeline-number">1</div>
+                    <div class="timeline-content">
+                        <h3>The Toss</h3>
+                        <p>Launch the game. Choose ODD or EVEN and input a number (1-6) to decide who bats first.</p>
+                        <i class="fa-solid fa-coins bg-icon"></i>
+                    </div>
+                </div>
+                
+                <div class="timeline-item glass-panel">
+                    <div class="timeline-number">2</div>
+                    <div class="timeline-content">
+                        <h3>Make Your Move</h3>
+                        <p>When batting or bowling, enter a number between 1 and 6 when prompted.</p>
+                        <i class="fa-solid fa-hand-pointer bg-icon"></i>
+                    </div>
+                </div>
+                
+                <div class="timeline-item glass-panel">
+                    <div class="timeline-number">3</div>
+                    <div class="timeline-content">
+                        <h3>The Showdown</h3>
+                        <p>If your number matches the computer's number—the batter is OUT! Otherwise, the runs are added to the total score.</p>
+                        <i class="fa-solid fa-bolt bg-icon"></i>
+                    </div>
+                </div>
+                
+                <div class="timeline-item glass-panel">
+                    <div class="timeline-number">4</div>
+                    <div class="timeline-content">
+                        <h3>Victory Target</h3>
+                        <p>Chase down the set target when batting second, or defend your score by taking the computer's wicket.</p>
+                        <i class="fa-solid fa-trophy bg-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Screenshots / Demo Section -->
+        <section id="demo" class="demo section fade-in">
+            <h2 class="section-title">See It in Action</h2>
+            <div class="terminal-mockup glass-panel">
+                <div class="terminal-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="terminal-title">python Numpy.py</span>
+                </div>
+                <div class="terminal-body">
+                    <p class="term-command">WELCOME TO HAND CRICKET GAME!</p>
+                    <p class="term-command">IT'S TOSS TIME!</p>
+                    <p class="term-input">Choose 'ODD' or 'EVEN': <span class="typing">odd</span></p>
+                    <p class="term-input">Enter a number between 1 and 6: <span class="typing">4</span></p>
+                    <p class="term-output">You chose: 4, Computer chose: 3, Total: 7</p>
+                    <p class="term-highlight">YOU WON THE TOSS!</p>
+                    <p class="term-input">Choose 'BAT' or 'BOWL': <span class="typing">bat</span></p>
+                    <br>
+                    <p class="term-command">YOU is BATTING!</p>
+                    <p class="term-input">Enter a number between 1 and 6: <span class="typing">6</span></p>
+                    <p class="term-output">You played 6, computer bowled 2</p>
+                    <p class="term-output">You scored: 6</p>
+                    <span class="cursor"></span>
+                </div>
+            </div>
+            <p class="caption">Experience nostalgic terminal gameplay.</p>
+        </section>
+
+        <!-- Tech Stack Section -->
+        <section id="tech-stack" class="tech-stack section fade-in">
+            <h2 class="section-title">Powered By</h2>
+            <p class="section-desc">Built completely with Python. Runs locally on your machine.</p>
+            
+            <div class="badges-container">
+                <div class="badge glass-panel">
+                    <i class="fa-brands fa-python"></i>
+                    <span>Python 3.x</span>
+                </div>
+                <div class="badge glass-panel">
+                    <i class="fa-solid fa-microchip"></i>
+                    <span>Game Logic</span>
+                </div>
+                <div class="badge glass-panel">
+                    <i class="fa-solid fa-brain"></i>
+                    <span>AI Opponent</span>
+                </div>
+                <div class="badge glass-panel">
+                    <i class="fa-solid fa-terminal"></i>
+                    <span>Terminal/CLI</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section id="download" class="download section fade-in">
+            <h2 class="section-title">Get Started</h2>
+            
+            <div class="instructions glass-panel">
+                <ol>
+                    <li>Clone or download the repository containing <code>Numpy.py</code></li>
+                    <li>Ensure you have Python 3.x installed on your system.</li>
+                    <li>Open your terminal or command prompt.</li>
+                    <li>Navigate to the directory and run: <br><code class="inline-code">python Numpy.py</code></li>
+                    <li>Follow the on-screen prompts and enjoy!</li>
+                </ol>
+            </div>
+
+            <div class="action-buttons">
+                <a href="#" class="btn btn-primary btn-glow">
+                    <i class="fa-solid fa-download"></i> Download Game
+                </a>
+                <a href="#" class="btn btn-secondary">
+                    <i class="fa-brands fa-github"></i> View Source
+                </a>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials section fade-in">
+            <h2 class="section-title">What Players Say</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card glass-panel">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="quote">"I was defending 14 runs and the AI hit a 6 on the last ball. So intense!"</p>
+                    <p class="author">- Player_One</p>
+                </div>
+                <div class="testimonial-card glass-panel">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                    </div>
+                    <p class="quote">"The AI is sneaky! It always seems to bowl the exact number I'm thinking of."</p>
+                    <p class="author">- CodeNinja99</p>
+                </div>
+                <div class="testimonial-card glass-panel">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="quote">"Addictive and simple. Brought back so many school memories."</p>
+                    <p class="author">- DesktopGamer</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h3>HAND CRICKET</h3>
+                <p>Made with <i class="fa-solid fa-heart" style="color: #ff3366;"></i> &amp; Python</p>
+            </div>
+            
+            <div class="footer-links">
+                <a href="#hero" class="smooth-scroll">Back to Top <i class="fa-solid fa-arrow-up"></i></a>
+            </div>
+
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-github"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-discord"></i></a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Hand Cricket vs AI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
